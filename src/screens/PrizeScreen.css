@@ -1,0 +1,12 @@
+.prize-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 1rem;
+}
+
+.prize {
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
