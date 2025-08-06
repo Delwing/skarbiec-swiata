@@ -12,12 +12,10 @@ function MapItem({image, x, y, onClick, descriptionTitle}: MapItemProps) {
     top: y,
   }
 
-  const ImageComponent = image
-
   return (
     <div role={"button"} style={style} onClick={onClick}>
       <span className={'technical-id'}>{descriptionTitle}</span>
-      <ImageComponent/>
+      <img src={image} alt={descriptionTitle} />
     </div>
   )
 }
