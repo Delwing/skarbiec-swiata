@@ -14,3 +14,17 @@ body {
 [role="button"] {
   cursor: pointer;
 }
+
+.technical-id {
+  display: block;
+  font-size: 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: red;
+  font-weight: bold;
+  background-color: white;
+  font-family: monospace;
+  border: 1px solid black;
+  opacity: 0.8;
+}

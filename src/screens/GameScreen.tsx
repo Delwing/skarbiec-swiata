@@ -44,7 +44,7 @@ function GameScreen() {
                 </div>
                 <Map/>
                 {visibleCoins.map((coin, index) => (
-                    <Coin key={index} x={coin.x} y={coin.y} onClick={() => handleCoinClick(index)}/>
+                    <Coin key={index} id={coin.id} x={coin.x} y={coin.y} onClick={() => handleCoinClick(index)}/>
                 ))}
 
                 {visibleItems.map((item, index) => (

@@ -34,10 +34,9 @@ import Toucan from "../assets/items/toucan.svg"
 import Turtle from "../assets/items/turtle.svg"
 import Viking from "../assets/items/viking.svg"
 import Whale from "../assets/items/whale.svg"
-import type {ComponentType, SVGProps} from 'react'
 
 export interface ItemDefinition {
-  image: ComponentType<SVGProps<SVGSVGElement>>
+  image: string
   x: number
   y: number
   descriptionImage: string
@@ -52,7 +51,7 @@ export const itemDefinitions: ItemDefinition[] = [
     y: 237,
     descriptionImage: "",
     descriptionText: "",
-    descriptionTitle: "",
+    descriptionTitle: "Bear",
   },
   {
     image: BigBen,

@@ -5,7 +5,7 @@ interface MapItemProps extends ItemDefinition {
   onClick?: () => void
 }
 
-function MapItem({image, x, y, onClick}: MapItemProps) {
+function MapItem({image, x, y, onClick, descriptionTitle}: MapItemProps) {
   const style: CSSProperties = {
     position: 'absolute',
     left: x,
@@ -16,6 +16,7 @@ function MapItem({image, x, y, onClick}: MapItemProps) {
 
   return (
     <div role={"button"} style={style} onClick={onClick}>
+      <span className={'technical-id'}>{descriptionTitle}</span>
       <ImageComponent/>
     </div>
   )
