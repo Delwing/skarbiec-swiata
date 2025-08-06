@@ -14,12 +14,18 @@ function GameScreen() {
     const navigate = useNavigate()
     const [collectedCoins, setCollectedCoins] = useState(0)
     const [visibleCoins, setVisibleCoins] = useState(coins)
+    const [visibleItems, setVisibleItems] = useState(itemDefinitions)
     const [popupVisible, setPopupVisible] = useState(false)
     const maxCoins = coins.length
 
     const handleCoinClick = (index: number) => {
         setVisibleCoins((prev) => prev.filter((_, i) => i !== index))
         setCollectedCoins((prev) => prev + 1)
+        setPopupVisible(true)
+    }
+
+    const handleItemClick = (index: number) => {
+        setVisibleItems((prev) => prev.filter((_, i) => i !== index))
         setPopupVisible(true)
     }
 
@@ -41,9 +47,12 @@ function GameScreen() {
                     <Coin key={index} x={coin.x} y={coin.y} onClick={() => handleCoinClick(index)}/>
                 ))}
 
-                {itemDefinitions.map((item) => (
-                    <MapItem image={item.image} x={item.x} y={item.y} descriptionImage={item.descriptionImage}
-                             descriptionText={item.descriptionText} descriptionTitle={item.descriptionTitle}/>
+                {visibleItems.map((item, index) => (
+                    <MapItem key={index} image={item.image} x={item.x} y={item.y}
+                             descriptionImage={item.descriptionImage}
+                             descriptionText={item.descriptionText}
+                             descriptionTitle={item.descriptionTitle}
+                             onClick={() => handleItemClick(index)}/>
                 ))}
             </div>
             <div className="popup" style={{display: popupVisible ? 'block' : 'none'}}>
