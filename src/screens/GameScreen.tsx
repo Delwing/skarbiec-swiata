@@ -1,6 +1,6 @@
 import './GameScreen.css'
-import map from '../assets/map.png'
-import MapItem from "../components/MapItem.tsx"
+import Map from '../assets/map.svg'
+import MapItem from "../components/MapItem.tsx";
 import BackArrow from "../assets/back-arrow.svg"
 import SmallCoin from "../assets/small-coin.svg"
 import {useState} from 'react'
@@ -29,16 +29,19 @@ function GameScreen() {
                     <span>powrót</span>
                 </div>
                 <div role="button" className="interface-button coin-button">
-                    <span className={"bigger"}>{collectedCoins}</span>/{maxCoins}
+                    <span className={"text"}>
+                    <span className={"bigger"}>{collectedCoins}</span><span className={"smaller"}>/{maxCoins}</span>
+                    </span>
                     <SmallCoin/>
                 </div>
-                <img style={{opacity: 1}} src={map} alt="Map"/>
+                <Map/>
                 {visibleCoins.map((coin, index) => (
-                    <Coin key={index} x={coin.x} y={coin.y} onClick={() => handleCoinClick(index)} />
+                    <Coin key={index} x={coin.x} y={coin.y} onClick={() => handleCoinClick(index)}/>
                 ))}
 
                 {itemDefinitions.map((item) => (
-                    <MapItem image={item.image} x={item.x - 10} y={item.y + 30} descriptionImage={item.descriptionImage} descriptionText={item.descriptionText} descriptionTitle={item.descriptionTitle} />
+                    <MapItem image={item.image} x={item.x - 10} y={item.y + 30} descriptionImage={item.descriptionImage}
+                             descriptionText={item.descriptionText} descriptionTitle={item.descriptionTitle}/>
                 ))}
             </div>
             <div className="popup" style={{display: popupVisible ? 'block' : 'none'}}>

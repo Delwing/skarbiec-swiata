@@ -15,11 +15,13 @@ function MapItem({
     top: y,
   }
 
-  console.log(descriptionImage, descriptionText, descriptionTitle)
+  const ImageComponent = image
+
+  console.log(ImageComponent, descriptionImage, descriptionText, descriptionTitle)
 
   return (
     <div role={"button"} style={style}>
-      <img src={image} alt={descriptionTitle}  />
+      {/*<ImageComponent />*/}
     </div>
   )
 }

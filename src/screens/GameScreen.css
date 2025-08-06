@@ -59,14 +59,6 @@
   border-style: solid;
 }
 
-.popup-button:hover {
-  box-shadow: 0 4px 15px 0 #9B9B9B85;
-  position: relative;
-  top: 2px;
-  left: 2px;
-  padding: 9px 23px;
-}
-
 .popup .footer {
   position: absolute;
   bottom: 40px;
@@ -74,6 +66,8 @@
   display: flex;
   justify-content: center;
 }
+
+
 
 .interface-button {
   width: 124px;
@@ -110,11 +104,32 @@
   right: 63px;
 }
 
+.coin-button .text {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  line-height: 100%;
+  text-align: center;
+  padding-right: 15px;
+}
+
 .coin-button .bigger {
   font-size: 25px;
+  position: relative;
+  left: -1px
+}
+
+.coin-button .smaller {
+  position: relative;
+  font-size: 20px;
+  top: 2px;
+  left: 1px;
 }
 
 .coin-button > svg {
   margin-left: 10px;
+  flex-shrink: 0;
+  position: absolute;
+  right: 15px;
 }
 
