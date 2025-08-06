@@ -5,6 +5,7 @@ function GameScreen() {
   return (
     <div className="game-screen">
       <img src={map} alt="Map" />
+      <div className="popup" />
     </div>
   )
 }
