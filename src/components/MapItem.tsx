@@ -18,7 +18,7 @@ function MapItem({
   console.log(descriptionImage, descriptionText, descriptionTitle)
 
   return (
-    <div style={style}>
+    <div role={"button"} style={style}>
       <img src={image} alt={descriptionTitle}  />
     </div>
   )

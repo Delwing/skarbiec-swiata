@@ -1,5 +1,5 @@
 import './StartScreen.css'
-import logo from '../assets/logo.svg'
+import Logo from '../assets/logo.svg'
 import { useNavigate } from 'react-router-dom'
 
 function StartScreen() {
@@ -7,7 +7,7 @@ function StartScreen() {
 
     return (
         <div className="start-screen">
-            <img src={logo} alt="Logo"/>
+            <Logo />
             <div
                 role="button"
                 className={'start-button'}
