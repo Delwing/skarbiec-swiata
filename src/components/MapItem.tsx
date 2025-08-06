@@ -1,14 +1,11 @@
-import type { CSSProperties } from 'react'
-import type {ItemDefinition} from "./definitions.ts";
+import type {CSSProperties} from 'react'
+import type {ItemDefinition} from './definitions.ts'
 
-function MapItem({
-  image,
-  x,
-  y,
-  descriptionImage,
-  descriptionText,
-  descriptionTitle,
-}: ItemDefinition) {
+interface MapItemProps extends ItemDefinition {
+  onClick?: () => void
+}
+
+function MapItem({image, x, y, onClick}: MapItemProps) {
   const style: CSSProperties = {
     position: 'absolute',
     left: x,
@@ -17,11 +14,9 @@ function MapItem({
 
   const ImageComponent = image
 
-  console.log(ImageComponent, descriptionImage, descriptionText, descriptionTitle)
-
   return (
-    <div role={"button"} style={style}>
-      <ImageComponent />
+    <div role={"button"} style={style} onClick={onClick}>
+      <ImageComponent/>
     </div>
   )
 }
