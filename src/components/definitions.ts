@@ -264,8 +264,8 @@ export const itemDefinitions: ItemDefinition[] = [
     },
     {
         image: Spaghetti,
-        x: 365,
-        y: 789,
+        x: 789,
+        y: 365,
         descriptionImage: "",
         descriptionText: "",
         descriptionTitle: "Spaghetti",
