@@ -7,10 +7,15 @@ export interface CoinDefinition {
     y: number
 }
 
+interface CoinProps extends CoinDefinition {
+    onClick?: () => void
+}
+
 function Coin({
                   x,
                   y,
-              }: CoinDefinition) {
+                  onClick,
+              }: CoinProps) {
     const style: CSSProperties = {
         position: 'absolute',
         left: x,
@@ -19,7 +24,7 @@ function Coin({
 
 
     return (
-        <div role={"button"} style={style}>
+        <div role={"button"} style={style} onClick={onClick}>
             <img src={CoinImage} alt={"coin"}/>
         </div>
     )
