@@ -40,7 +40,7 @@ function GameScreen() {
                 ))}
 
                 {itemDefinitions.map((item) => (
-                    <MapItem image={item.image} x={item.x - 10} y={item.y + 30} descriptionImage={item.descriptionImage}
+                    <MapItem image={item.image} x={item.x} y={item.y} descriptionImage={item.descriptionImage}
                              descriptionText={item.descriptionText} descriptionTitle={item.descriptionTitle}/>
                 ))}
             </div>

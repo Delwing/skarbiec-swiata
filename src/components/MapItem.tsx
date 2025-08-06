@@ -21,7 +21,7 @@ function MapItem({
 
   return (
     <div role={"button"} style={style}>
-      {/*<ImageComponent />*/}
+      <ImageComponent />
     </div>
   )
 }
