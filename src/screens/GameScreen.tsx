@@ -29,7 +29,16 @@ function GameScreen() {
                     <MapItem image={item.image} x={item.x - 10} y={item.y + 30} descriptionImage={item.descriptionImage} descriptionText={item.descriptionText} descriptionTitle={item.descriptionTitle} />
                 ))}
             </div>
-            <div className="popup"/>
+            <div className="popup">
+                <div className="header">
+                    Bonus!
+                </div>
+                <div className={"footer"}>
+                    <div role={"button"} className={"popup-button"}>
+                        Graj dalej
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

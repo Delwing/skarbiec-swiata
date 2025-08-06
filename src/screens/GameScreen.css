@@ -24,6 +24,55 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.popup .header {
+  background: #FBCB2F;
+  height: 99px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  color: #FFFFFF;
+}
+
+.popup-button {
+  width: 214px;
+  height: 58px;
+  padding: 7px 21px;
+  opacity: 1;
+  border-radius: 52px;
+  border-width: 4px;
+  border-color: #FFFFFF;
+  box-shadow: 0 4px 20px 0 #9B9B9B85;
+  font-size: 40px;
+  color: #FFFFFF;
+  background: linear-gradient(90deg, #FBCB2F 0%, #FF9D3E 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+}
+
+.popup-button:hover {
+  box-shadow: 0 4px 15px 0 #9B9B9B85;
+  position: relative;
+  top: 2px;
+  left: 2px;
+  padding: 9px 23px;
+}
+
+.popup .footer {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .interface-button {
