@@ -1,5 +1,5 @@
 import './GameScreen.css'
-import Map from '../assets/map.svg'
+import mapImage from '../assets/map.svg?url'
 import MapItem from "../components/MapItem.tsx";
 import BackArrow from "../assets/back-arrow.svg"
 import SmallCoin from "../assets/small-coin.svg"
@@ -42,7 +42,7 @@ function GameScreen() {
                     </span>
                     <SmallCoin/>
                 </div>
-                <Map/>
+                <img src={mapImage} alt="Map" />
                 {visibleCoins.map((coin, index) => (
                     <Coin key={index} id={coin.id} x={coin.x} y={coin.y} onClick={() => handleCoinClick(index)}/>
                 ))}
