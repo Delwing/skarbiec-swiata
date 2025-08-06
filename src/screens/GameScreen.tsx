@@ -4,12 +4,14 @@ import MapItem from "../components/MapItem.tsx";
 import BackArrow from "../assets/back-arrow.svg"
 import SmallCoin from "../assets/small-coin.svg"
 import {useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 import {coins} from "../components/coins.ts"
 import Coin from "../components/Coin.tsx"
 import {itemDefinitions} from "../components/definitions.ts"
 
 function GameScreen() {
+    const navigate = useNavigate()
     const [collectedCoins, setCollectedCoins] = useState(0)
     const [visibleCoins, setVisibleCoins] = useState(coins)
     const [popupVisible, setPopupVisible] = useState(false)
@@ -24,7 +26,7 @@ function GameScreen() {
     return (
         <div className="game-screen">
             <div className="game-map">
-                <div role="button" className="interface-button back-button">
+                <div role="button" className="interface-button back-button" onClick={() => navigate('/') }>
                     <BackArrow/>
                     <span>powrót</span>
                 </div>
