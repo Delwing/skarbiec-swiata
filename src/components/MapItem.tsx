@@ -14,7 +14,6 @@ function MapItem({image, x, y, onClick, descriptionTitle}: MapItemProps) {
 
   return (
     <div role={"button"} style={style} onClick={onClick}>
-      <span className={'technical-id'}>{descriptionTitle}</span>
       <img src={image} alt={descriptionTitle} />
     </div>
   )
