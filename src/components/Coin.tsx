@@ -1,12 +1,7 @@
 import type {CSSProperties} from 'react'
 
 import CoinImage from "../assets/coin.webp"
-
-export interface CoinDefinition {
-    id: string
-    x: number
-    y: number
-}
+import type {CoinDefinition} from "./coins.ts"
 
 interface CoinProps extends CoinDefinition {
     onClick?: () => void

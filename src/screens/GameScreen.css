@@ -46,6 +46,11 @@
   color: #FFFFFF;
 }
 
+.popup .content {
+  padding: 120px 40px 100px;
+  font-size: 32px;
+}
+
 .popup-button {
   width: 214px;
   height: 58px;
