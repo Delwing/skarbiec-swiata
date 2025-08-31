@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skarbiec z całego świata - Sandbox</title>
+    <style>
+      body { margin: 0; display: flex; min-height: 100vh; }
+      #root { flex: 1; }
+      #sandbox-controls { width: 250px; border-left: 1px solid #ccc; padding: 1rem; background: #f7f7f7; box-sizing: border-box; }
+      #sandbox-controls h2 { margin-top: 0; }
+      #sandbox-controls button { display: block; width: 100%; margin-bottom: 0.5rem; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="sandbox-controls"></div>
+    <script type="module" src="/src/sandbox.tsx"></script>
+  </body>
+</html>
