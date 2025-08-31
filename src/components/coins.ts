@@ -114,5 +114,11 @@ export const coins: CoinDefinition[] = [
         y: 930,
         descriptionText: `Na Antarktydzie istnieje dolar antarktyczny, lecz nie jest to oficjalny środek płatniczy. Na kontynencie płaci się dolarami amerykańskimi, euro oraz walutami obowiązującymi na statkach kursujących do Antarktydy.`,
     },
+    {
+        id: "19",
+        x: 909,
+        y: 661,
+        descriptionText: `W 2008 roku hiperinflacja w Zimbabwe doprowadziła do emisji banknotu o nominale 100 bilionów dolarów zimbabweńskich, który szybko stał się niemal bezwartościowy. Wkrótce kraj zrezygnował z własnej waluty na rzecz obcych.`,
+    },
 ]
 
