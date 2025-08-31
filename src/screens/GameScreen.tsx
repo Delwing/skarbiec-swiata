@@ -6,7 +6,7 @@ import SmallCoin from "../assets/small-coin.svg"
 import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 
-import {coins} from "../components/coins.ts"
+import {coins, type CoinDefinition} from "../components/coins.ts"
 import Coin from "../components/Coin.tsx"
 import {itemDefinitions} from "../components/definitions.ts"
 
@@ -19,9 +19,8 @@ function GameScreen() {
     const [popupText, setPopupText] = useState("")
     const maxCoins = coins.length
 
-    const handleCoinClick = (index: number) => {
-        const coin = visibleCoins[index]
-        setVisibleCoins((prev) => prev.filter((_, i) => i !== index))
+    const handleCoinClick = (coin: CoinDefinition) => {
+        setVisibleCoins((prev) => prev.filter((c) => c.id !== coin.id))
         setCollectedCoins((prev) => prev + 1)
         setPopupText(coin.descriptionText)
         setPopupVisible(true)
@@ -48,8 +47,8 @@ function GameScreen() {
                     <SmallCoin/>
                 </div>
                 <img src={mapImage} alt="Map" />
-                {visibleCoins.map((coin, index) => (
-                    <Coin key={index} {...coin} onClick={() => handleCoinClick(index)}/>
+                {visibleCoins.map((coin) => (
+                    <Coin key={coin.id} {...coin} onClick={() => handleCoinClick(coin)}/>
                 ))}
 
                 {visibleItems.map((item, index) => (
