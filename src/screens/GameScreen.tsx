@@ -16,16 +16,21 @@ function GameScreen() {
     const [visibleCoins, setVisibleCoins] = useState(coins)
     const [visibleItems, setVisibleItems] = useState(itemDefinitions)
     const [popupVisible, setPopupVisible] = useState(false)
+    const [popupText, setPopupText] = useState("")
     const maxCoins = coins.length
 
     const handleCoinClick = (index: number) => {
+        const coin = visibleCoins[index]
         setVisibleCoins((prev) => prev.filter((_, i) => i !== index))
         setCollectedCoins((prev) => prev + 1)
+        setPopupText(coin.descriptionText)
         setPopupVisible(true)
     }
 
     const handleItemClick = (index: number) => {
+        const item = visibleItems[index]
         setVisibleItems((prev) => prev.filter((_, i) => i !== index))
+        setPopupText(item.descriptionText)
         setPopupVisible(true)
     }
 
@@ -44,7 +49,7 @@ function GameScreen() {
                 </div>
                 <img src={mapImage} alt="Map" />
                 {visibleCoins.map((coin, index) => (
-                    <Coin key={index} id={coin.id} x={coin.x} y={coin.y} onClick={() => handleCoinClick(index)}/>
+                    <Coin key={index} {...coin} onClick={() => handleCoinClick(index)}/>
                 ))}
 
                 {visibleItems.map((item, index) => (
@@ -59,6 +64,7 @@ function GameScreen() {
                 <div className="header">
                     Bonus!
                 </div>
+                <div className="content">{popupText}</div>
                 <div className={"footer"}>
                     <div role={"button"} className={"popup-button"} onClick={() => setPopupVisible(false)}>
                         Graj dalej
