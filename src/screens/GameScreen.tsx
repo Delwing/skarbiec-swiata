@@ -3,7 +3,7 @@ import mapImage from '../assets/map.svg?url'
 import MapItem from "../components/MapItem.tsx";
 import BackArrow from "../assets/back-arrow.svg"
 import SmallCoin from "../assets/small-coin.svg"
-import {useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 
 import {coins, type CoinDefinition} from "../components/coins.ts"
@@ -18,6 +18,20 @@ function GameScreen() {
     const [popupVisible, setPopupVisible] = useState(false)
     const [popupText, setPopupText] = useState("")
     const maxCoins = coins.length
+    const gameScreenRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        function updateScale() {
+            const scale = Math.min(window.innerHeight / 1010, window.innerWidth / 1656);
+            if (gameScreenRef.current) {
+                gameScreenRef.current.style.setProperty('--scale', scale.toString());
+            }
+        }
+
+        updateScale();
+        window.addEventListener('resize', updateScale);
+        return () => window.removeEventListener('resize', updateScale);
+    }, []);
 
     const handleCoinClick = (coin: CoinDefinition) => {
         setVisibleCoins((prev) => prev.filter((c) => c.id !== coin.id))
@@ -34,7 +48,7 @@ function GameScreen() {
     }
 
     return (
-        <div className="game-screen">
+        <div className="game-screen" ref={gameScreenRef}>
             <div className="game-map">
                 <div role="button" className="interface-button back-button" onClick={() => navigate('/') }>
                     <BackArrow/>

@@ -8,7 +8,6 @@ interface CoinProps extends CoinDefinition {
 }
 
 function Coin({
-                  id,
                   x,
                   y,
                   onClick,
@@ -22,9 +21,6 @@ function Coin({
 
     return (
         <div role={"button"} style={style} onClick={onClick}>
-            <span className={'technical-id'}>
-                {id}
-            </span>
             <img src={CoinImage} alt={"coin"}/>
         </div>
     )
