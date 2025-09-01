@@ -118,6 +118,6 @@ export const coins: CoinDefinition[] = [
         id: "19",
         x: 846,
         y: 930,
-        descriptionText: `Antarktyda Mimo, że na Antarktydzie istnieje dolar antarktyczny, to nie można nim płacić. Jest to waluta kolekcjonerska. Na Antarktydzie nie ma jednej oficjalnej waluty, a płaci się  w dolarach amerykańskich, euro i walutach obowiązujących na statkach kursujących do Antarktydy.`,
+        descriptionText: `Mimo, że na Antarktydzie istnieje dolar antarktyczny, to nie można nim płacić. Jest to waluta kolekcjonerska. Na Antarktydzie nie ma jednej oficjalnej waluty, a płaci się  w dolarach amerykańskich, euro i walutach obowiązujących na statkach kursujących do Antarktydy.`,
     },
 ]

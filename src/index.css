@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+
+html, body, #root {
+  width: 100vw;
+  height: 100vh;
+}
+
 body {
   background-color: #4e7cf7;
   font-family: "freight-sans-compressed-pro", sans-serif;
@@ -28,4 +34,12 @@ body {
   font-family: monospace;
   border: 1px solid black;
   opacity: 0.8;
+}
+
+.loader {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
