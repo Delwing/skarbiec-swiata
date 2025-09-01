@@ -7,6 +7,10 @@
     gap: 40px;
 }
 
+.start-screen svg {
+    max-height: 80%;
+}
+
 .start-button {
     width: 148px;
     height: 47px;
