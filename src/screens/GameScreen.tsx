@@ -22,7 +22,7 @@ function GameScreen() {
 
     useEffect(() => {
         function updateScale() {
-            const scale = Math.min(window.innerHeight / 1010, window.innerWidth / 1656);
+            const scale = Math.min(window.innerHeight / 1010, window.innerWidth / 1656, 1);
             if (gameScreenRef.current) {
                 gameScreenRef.current.style.setProperty('--scale', scale.toString());
             }
