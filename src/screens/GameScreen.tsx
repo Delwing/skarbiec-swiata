@@ -17,6 +17,7 @@ function GameScreen() {
     const [visibleItems, setVisibleItems] = useState(itemDefinitions)
     const [popupVisible, setPopupVisible] = useState(false)
     const [popupText, setPopupText] = useState("")
+    const [popupTitle, setPopupTitle] = useState("Odkrycie!")
     const maxCoins = coins.length
     const gameScreenRef = useRef<HTMLDivElement>(null);
 
@@ -38,8 +39,10 @@ function GameScreen() {
         const newCount = collectedCoins + 1
         setCollectedCoins(newCount)
         if (newCount === maxCoins) {
+            setPopupTitle("Odkrycie!")
             setPopupText("Brawo! Jesteś prawdziwym odkrywcą! Udało Ci się zebrać wszystkie skarby z mapy i poznać ich historie.")
         } else {
+            setPopupTitle("Odkrycie!")
             setPopupText(coin.descriptionText)
         }
         setPopupVisible(true)
@@ -48,7 +51,14 @@ function GameScreen() {
     const handleItemClick = (index: number) => {
         const item = visibleItems[index]
         setVisibleItems((prev) => prev.filter((_, i) => i !== index))
+        setPopupTitle("Odkrycie!")
         setPopupText(item.descriptionText)
+        setPopupVisible(true)
+    }
+
+    const handleTaskClick = () => {
+        setPopupTitle("Twoje zadanie")
+        setPopupText("Odkryj skarby całego świata! Twoja misja: na tej mapie ukryły się małe, błyszczące monety. Spróbuj je wszystkie odnaleźć i kliknąć! Za każdy skarb dostaniesz punkt, a potem dowiesz się czegoś ciekawego o pieniądzach z danego miejsca!")
         setPopupVisible(true)
     }
 
@@ -65,6 +75,9 @@ function GameScreen() {
                     </span>
                     <SmallCoin/>
                 </div>
+                <div role="button" className="interface-button task-button" onClick={handleTaskClick}>
+                    Twoje zadanie
+                </div>
                 <img src={mapImage} alt="Map" />
                 {visibleCoins.map((coin) => (
                     <Coin key={coin.id} {...coin} onClick={() => handleCoinClick(coin)}/>
@@ -80,7 +93,7 @@ function GameScreen() {
             </div>
             <div className="popup" style={{display: popupVisible ? 'block' : 'none'}}>
                 <div className="header">
-                    Odkrycie!
+                    {popupTitle}
                 </div>
                 <div className="content">{popupText}</div>
                 <div className={"footer"}>
