@@ -35,8 +35,13 @@ function GameScreen() {
 
     const handleCoinClick = (coin: CoinDefinition) => {
         setVisibleCoins((prev) => prev.filter((c) => c.id !== coin.id))
-        setCollectedCoins((prev) => prev + 1)
-        setPopupText(coin.descriptionText)
+        const newCount = collectedCoins + 1
+        setCollectedCoins(newCount)
+        if (newCount === maxCoins) {
+            setPopupText("Brawo! Jesteś prawdziwym odkrywcą! Udało Ci się zebrać wszystkie skarby z mapy i poznać ich historie.")
+        } else {
+            setPopupText(coin.descriptionText)
+        }
         setPopupVisible(true)
     }
 
@@ -75,12 +80,12 @@ function GameScreen() {
             </div>
             <div className="popup" style={{display: popupVisible ? 'block' : 'none'}}>
                 <div className="header">
-                    Bonus!
+                    Odkrycie!
                 </div>
                 <div className="content">{popupText}</div>
                 <div className={"footer"}>
                     <div role={"button"} className={"popup-button"} onClick={() => setPopupVisible(false)}>
-                        Graj dalej
+                        Szukaj dalej
                     </div>
                 </div>
             </div>
