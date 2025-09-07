@@ -18,7 +18,9 @@ function GameScreen() {
     const [popupVisible, setPopupVisible] = useState(false)
     const [popupText, setPopupText] = useState("")
     const [popupTitle, setPopupTitle] = useState("Odkrycie!")
+    const [showCompletion, setShowCompletion] = useState(false)
     const maxCoins = coins.length
+    const completionText = "Brawo! Jesteś prawdziwym odkrywcą! Udało Ci się zebrać wszystkie skarby z mapy i poznać ich historie."
     const gameScreenRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -38,14 +40,12 @@ function GameScreen() {
         setVisibleCoins((prev) => prev.filter((c) => c.id !== coin.id))
         const newCount = collectedCoins + 1
         setCollectedCoins(newCount)
-        if (newCount === maxCoins) {
-            setPopupTitle("Odkrycie!")
-            setPopupText("Brawo! Jesteś prawdziwym odkrywcą! Udało Ci się zebrać wszystkie skarby z mapy i poznać ich historie.")
-        } else {
-            setPopupTitle("Odkrycie!")
-            setPopupText(coin.descriptionText)
-        }
+        setPopupTitle("Odkrycie!")
+        setPopupText(coin.descriptionText)
         setPopupVisible(true)
+        if (newCount === maxCoins) {
+            setShowCompletion(true)
+        }
     }
 
     const handleItemClick = (index: number) => {
@@ -60,6 +60,20 @@ function GameScreen() {
         setPopupTitle("Twoje zadanie")
         setPopupText("Odkryj skarby całego świata! Twoja misja: na tej mapie ukryły się małe, błyszczące monety. Spróbuj je wszystkie odnaleźć i kliknąć! Za każdy skarb dostaniesz punkt, a potem dowiesz się czegoś ciekawego o pieniądzach z danego miejsca!")
         setPopupVisible(true)
+    }
+
+    const handlePopupClose = () => {
+        if (showCompletion) {
+            setPopupVisible(false)
+            setShowCompletion(false)
+            setTimeout(() => {
+                setPopupTitle("Odkrycie!")
+                setPopupText(completionText)
+                setPopupVisible(true)
+            }, 0)
+        } else {
+            setPopupVisible(false)
+        }
     }
 
     return (
@@ -97,7 +111,7 @@ function GameScreen() {
                 </div>
                 <div className="content">{popupText}</div>
                 <div className={"footer"}>
-                    <div role={"button"} className={"popup-button"} onClick={() => setPopupVisible(false)}>
+                    <div role={"button"} className={"popup-button"} onClick={handlePopupClose}>
                         Szukaj dalej
                     </div>
                 </div>
