@@ -17,6 +17,7 @@ function GameScreen() {
     const [visibleItems, setVisibleItems] = useState(itemDefinitions)
     const [popupVisible, setPopupVisible] = useState(false)
     const [popupText, setPopupText] = useState("")
+    const [popupHeader, setPopupHeader] = useState("Bonus!")
     const maxCoins = coins.length
     const gameScreenRef = useRef<HTMLDivElement>(null);
 
@@ -36,6 +37,7 @@ function GameScreen() {
     const handleCoinClick = (coin: CoinDefinition) => {
         setVisibleCoins((prev) => prev.filter((c) => c.id !== coin.id))
         setCollectedCoins((prev) => prev + 1)
+        setPopupHeader("Bonus!")
         setPopupText(coin.descriptionText)
         setPopupVisible(true)
     }
@@ -43,7 +45,14 @@ function GameScreen() {
     const handleItemClick = (index: number) => {
         const item = visibleItems[index]
         setVisibleItems((prev) => prev.filter((_, i) => i !== index))
+        setPopupHeader("Bonus!")
         setPopupText(item.descriptionText)
+        setPopupVisible(true)
+    }
+
+    const handleTaskClick = () => {
+        setPopupHeader("Twoje zadanie")
+        setPopupText("Odkryj skarby całego świata! Twoja misja: na tej mapie ukryły się małe, błyszczące monety. Spróbuj je wszystkie odnaleźć i kliknąć! Za każdy skarb dostaniesz punkt, a potem dowiesz się czegoś ciekawego o pieniądzach z danego miejsca!")
         setPopupVisible(true)
     }
 
@@ -60,6 +69,9 @@ function GameScreen() {
                     </span>
                     <SmallCoin/>
                 </div>
+                <div role="button" className="interface-button task-button" onClick={handleTaskClick}>
+                    Twoje zadanie
+                </div>
                 <img src={mapImage} alt="Map" />
                 {visibleCoins.map((coin) => (
                     <Coin key={coin.id} {...coin} onClick={() => handleCoinClick(coin)}/>
@@ -75,7 +87,7 @@ function GameScreen() {
             </div>
             <div className="popup" style={{display: popupVisible ? 'block' : 'none'}}>
                 <div className="header">
-                    Bonus!
+                    {popupHeader}
                 </div>
                 <div className="content">{popupText}</div>
                 <div className={"footer"}>
