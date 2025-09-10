@@ -19,6 +19,7 @@ function GameScreen() {
     const [popupText, setPopupText] = useState("")
     const [popupTitle, setPopupTitle] = useState("Odkrycie!")
     const [showCompletion, setShowCompletion] = useState(false)
+    const [isCompletionPopup, setIsCompletionPopup] = useState(false)
     const maxCoins = coins.length
     const completionText = "Brawo! Jesteś prawdziwym odkrywcą! Udało Ci się zebrać wszystkie skarby z mapy i poznać ich historie."
     const gameScreenRef = useRef<HTMLDivElement>(null);
@@ -67,12 +68,14 @@ function GameScreen() {
             setPopupVisible(false)
             setShowCompletion(false)
             setTimeout(() => {
-                setPopupTitle("Odkrycie!")
+                setPopupTitle("Brawo!")
                 setPopupText(completionText)
                 setPopupVisible(true)
+                setIsCompletionPopup(true)
             }, 0)
         } else {
             setPopupVisible(false)
+            setIsCompletionPopup(false)
         }
     }
 
@@ -112,7 +115,7 @@ function GameScreen() {
                 <div className="content">{popupText}</div>
                 <div className={"footer"}>
                     <div role={"button"} className={"popup-button"} onClick={handlePopupClose}>
-                        Szukaj dalej
+                        {isCompletionPopup ? 'zamknij' : 'Szukaj dalej'}
                     </div>
                 </div>
             </div>
