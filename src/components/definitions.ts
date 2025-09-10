@@ -212,7 +212,7 @@ export const itemDefinitions: ItemDefinition[] = [
         y: 398,
         descriptionImage: "",
         descriptionText: `Nie ma na mapie dzbanka. Może chodziło o inny przedmiot? Jeśli chodzi o pitos, tradycyjny grecki dzbanek, używano go do przechowywania wina i oliwy.`,
-        descriptionTitle: "Dzbanek (brak kontekstu)",
+        descriptionTitle: "Dzbanek",
     },
     {
         image: Kangaroo,
@@ -268,7 +268,7 @@ export const itemDefinitions: ItemDefinition[] = [
         y: 365,
         descriptionImage: "",
         descriptionText: `Włochy i spaghetti nie są reprezentowane na mapie, ale to popularne danie. Legenda głosi, że makaron pochodzi z Chin i został przywieziony do Włoch przez Marco Polo.`,
-        descriptionTitle: "Spaghetti (brak kontekstu)",
+        descriptionTitle: "Spaghetti",
     },
     {
         image: Statue,
