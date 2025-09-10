@@ -51,7 +51,7 @@ function GameScreen() {
     const handleItemClick = (index: number) => {
         const item = visibleItems[index]
         setVisibleItems((prev) => prev.filter((_, i) => i !== index))
-        setPopupTitle("Odkrycie!")
+        setPopupTitle(item.descriptionTitle)
         setPopupText(item.descriptionText)
         setPopupVisible(true)
     }
